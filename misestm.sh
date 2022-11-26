@@ -39,9 +39,6 @@ echo -e "\e[1m\e[32m2. Installing dependencies... \e[0m" && sleep 1
 # packages
 sudo apt install curl build-essential git wget jq make gcc tmux chrony -y
 
-# Install jq
-sudo snap install jq
-
 # install go
 if ! [ -x "$(command -v go)" ]; then
   ver="1.18.2"
@@ -69,6 +66,7 @@ misestmd config node node tcp://127.0.0.1:26657
 ollod init $NODENAME --chain-id CHAIN_ID
 
 # download genesis
+sudo snap install jq
 curl https://e1.mises.site:443/genesis | jq .result.genesis > ~/.misestm/config/genesis.json
 
 # set peers and seeds
