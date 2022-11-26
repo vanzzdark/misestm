@@ -63,7 +63,7 @@ misestmd config keyring-backend test
 misestmd config node node tcp://127.0.0.1:26657
 
 # init
-ollod init $NODENAME --chain-id CHAIN_ID
+misestmd init $NODENAME --chain-id CHAIN_ID
 
 # download genesis
 sudo snap install jq
@@ -87,12 +87,6 @@ sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $
 # set minimum gas price and timeout commit
 sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0umis\"/" $HOME/.misestm/config/app.toml
 
-# enable prometheus
-sed -i -e "s/prometheus = false/prometheus = true/" $HOME/.misestm/config/config.toml
-
-# reset
-misestmd tendermint unsafe-reset-all --home $HOME/.misestm
-
 echo -e "\e[1m\e[32m4. Starting service... \e[0m" && sleep 1
 # create service
 sudo tee /etc/systemd/system/misestmd.service > /dev/null <<EOF
@@ -115,7 +109,7 @@ EOF
 # start service
 sudo systemctl daemon-reload
 sudo systemctl enable misestmd
-sudo systemctl restart misestmd
+sudo systemctl start misestmd
 
 echo '=============== SETUP FINISHED ==================='
-echo -e 'To check logs: \e[1m\e[journalctl -t misestmd -f\e[0m'
+echo -e 'To check logs: \e[1m\e[32mjournalctl -u misestmd -f -o cat\e[0m'
