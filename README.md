@@ -15,7 +15,7 @@ OFFICIAL EXPLORER : https://gw.mises.site/
 
 # FULLNODE SETUP
 ```
-wget -O misestm.sh https://raw.githubusercontent.com/vanzzdark/misestm/blob/main/misestm.sh && chmod +x misestm.sh && ./misestm.sh
+wget -O misestm.sh https://raw.githubusercontent.com/vanzzdark/misestm/main/misestm.sh && chmod +x misestm.sh && ./misestm.sh
 ```
 
 ## Post installation
