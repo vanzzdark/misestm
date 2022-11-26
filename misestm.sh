@@ -56,6 +56,7 @@ echo -e "\e[1m\e[32m3. Downloading and building binaries... \e[0m" && sleep 1
 git clone https://github.com/mises-id/mises-tm/
 cd mises-tm/
 git checkout main
+make install
 
 # config
 misestmd config chain-id $CHAIN_ID
