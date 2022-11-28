@@ -114,3 +114,16 @@ Show node id
 ```
 misestmd tendermint show-node-id
 ```
+
+# Delete Node
+```
+sudo systemctl stop misestmd && \
+sudo systemctl disable misestmd && \
+rm /etc/systemd/system/misestmd.service && \
+sudo systemctl daemon-reload && \
+cd $HOME && \
+rm -rf mises-tm && \
+rm -rf mises.sh && \
+rm -rf .misestm && \
+rm -rf $(which misestmd)
+````
