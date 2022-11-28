@@ -34,7 +34,7 @@ N/A
 
 Recover your wallet using seed phrase
 ```
-misestm keys add $WALLET --recover
+misestmd keys add $WALLET --recover
 ```
 # Save wallet info
 Add wallet and valoper address into variables 
